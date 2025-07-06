@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kids' Learning Hub | Fun Educational Videos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6C9BCF',
+                        secondary: '#7FBC8C',
+                        accent: '#FFD166',
+                        background: '#F9F9F9',
+                        text: '#333333',
+                        softBlue: '#AED9E0',
+                        softGreen: '#B5EAD7',
+                        softYellow: '#FFE5B4'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue', sans-serif;
+            background-color: #F9F9F9;
+            color: #333333;
+        }
+        .course-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+        }
+        .nav-link {
+            position: relative;
+            padding-bottom: 5px;
+        }
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: #FFD166;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        .progress-bar {
+            height: 8px;
+            border-radius: 4px;
+            background: #E0E0E0;
+        }
+        .progress-fill {
+            height: 100%;
+            border-radius: 4px;
+            background: #7FBC8C;
+            transition: width 0.5s ease;
+        }
+    </style>
+</head>
+<body class="bg-background">
+    <!-- Header -->
+    <header class="bg-primary text-white py-4 px-6 shadow-md">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+            <div class="flex items-center mb-4 md:mb-0">
+                <i class="fas fa-book-open text-3xl text-accent mr-3"></i>
+                <h1 class="text-2xl font-bold">Kids' Learning Hub</h1>
+            </div>
+            
+            <nav class="flex space-x-6">
+                <a href="#" class="nav-link font-medium hover:text-accent">Home</a>
+                <a href="#" class="nav-link font-medium hover:text-accent">Courses</a>
+                <a href="#" class="nav-link font-medium hover:text-accent">Videos</a>
+                <a href="#" class="nav-link font-medium hover:text-accent">Activities</a>
+                <a href="#" class="nav-link font-medium hover:text-accent">Parents</a>
+            </nav>
+            
+            <div class="mt-4 md:mt-0 flex items-center space-x-4">
+                <button class="bg-accent text-primary px-4 py-2 rounded-full font-bold hover:bg-yellow-300 transition">
+                    <i class="fas fa-user mr-2"></i>Sign In
+                </button>
+                <button class="bg-secondary text-white px-4 py-2 rounded-full font-bold hover:bg-green-600 transition">
+                    Try Free
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="py-12 px-6 bg-gradient-to-r from-softBlue to-softGreen">
+        <div class="container mx-auto flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-8 md:mb-0">
+                <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4">Learning is Fun!</h2>
+                <p class="text-xl text-text mb-6">Discover hundreds of fun, educational videos designed especially for kids. Learn math, science, reading, and more!</p>
+                <div class="flex flex-wrap gap-4">
+                    <button class="bg-accent text-primary px-6 py-3 rounded-full font-bold text-lg hover:bg-yellow-300 transition transform hover:scale-105">
+                        Explore Courses
+                    </button>
+                    <button class="bg-white text-primary px-6 py-3 rounded-full font-bold text-lg border-2 border-primary hover:bg-gray-100 transition transform hover:scale-105">
+                        <i class="fas fa-play-circle mr-2"></i>Watch Demo
+                    </button>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="w-full max-w-md">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/RKqB2nJ0VDQ" title="Learning Colors for Kids" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Courses -->
+    <section class="py-12 px-6 bg-white">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center text-primary mb-2">Popular Courses</h2>
+            <p class="text-center text-text mb-10 max-w-2xl mx-auto">Our most popular courses loved by kids and trusted by parents</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Course Card 1 -->
+                <div class="course-card bg-softYellow rounded-xl overflow-hidden shadow-lg">
+                    <div class="p-5">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <span class="bg-accent text-primary px-3 py-1 rounded-full text-sm font-bold">Math</span>
+                                <h3 class="text-xl font-bold text-primary mt-2">Fun with Numbers</h3>
+                            </div>
+                            <i class="fas fa-calculator text-3xl text-primary"></i>
+                        </div>
+                        <p class="text-text mb-4">Learn counting, addition and subtraction through fun games and stories.</p>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <div class="progress-bar w-32">
+                                    <div class="progress-fill w-3/4"></div>
+                                </div>
+                                <p class="text-sm text-text mt-1">12/16 lessons completed</p>
+                            </div>
+                            <button class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition">
+                                Continue
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Course Card 2 -->
+                <div class="course-card bg-softBlue rounded-xl overflow-hidden shadow-lg">
+                    <div class="p-5">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <span class="bg-secondary text-white px-3 py-1 rounded-full text-sm font-bold">Science</span>
+                                <h3 class="text-xl font-bold text-primary mt-2">Amazing Animals</h3>
+                            </div>
+                            <i class="fas fa-paw text-3xl text-primary"></i>
+                        </div>
+                        <p class="text-text mb-4">Discover the animal kingdom with fun facts and interactive lessons.</p>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <div class="progress-bar w-32">
+                                    <div class="progress-fill w-1/2"></div>
+                                </div>
+                                <p class="text-sm text-text mt-1">8/16 lessons completed</p>
+                            </div>
+                            <button class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition">
+                                Continue
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Course Card 3 -->
+                <div class="course-card bg-softGreen rounded-xl overflow-hidden shadow-lg">
+                    <div class="p-5">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <span class="bg-primary text-white px-3 py-1 rounded-full text-sm font-bold">Reading</span>
+                                <h3 class="text-xl font-bold text-primary mt-2">Story Time Adventures</h3>
+                            </div>
+                            <i class="fas fa-book text-3xl text-primary"></i>
+                        </div>
+                        <p class="text-text mb-4">Improve reading skills with interactive stories and phonics games.</p>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <div class="progress-bar w-32">
+                                    <div class="progress-fill w-1/4"></div>
+                                </div>
+                                <p class="text-sm text-text mt-1">4/20 lessons completed</p>
+                            </div>
+                            <button class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition">
+                                Continue
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Library -->
+    <section class="py-12 px-6 bg-background">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center text-primary mb-2">Video Library</h2>
+            <p class="text-center text-text mb-10 max-w-2xl mx-auto">Explore our collection of fun and educational videos</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Video Card 1 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/Fe9bnYRzFvk" title="Learn ABCs with Animals" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-bold text-lg text-primary mb-2">ABCs with Animals</h3>
+                        <p class="text-text mb-4">Learn the alphabet with cute animal friends!</p>
+                        <div class="flex items-center text-sm text-text">
+                            <i class="fas fa-clock mr-2"></i>
+                            <span>8 min</span>
+                            <i class="fas fa-star text-accent ml-4 mr-2"></i>
+                            <span>Ages 3-5</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Video Card 2 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/7B6eQ6eu7cE" title="Counting to 100 Song" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-bold text-lg text-primary mb-2">Counting to 100 Song</h3>
+                        <p class="text-text mb-4">Sing along and learn to count from 1 to 100!</p>
+                        <div class="flex items-center text-sm text-text">
+                            <i class="fas fa-clock mr-2"></i>
+                            <span>5 min</span>
+                            <i class="fas fa-star text-accent ml-4 mr-2"></i>
+                            <span>Ages 4-6</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Video Card 3 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/3lXv3Tt4x20" title="The Solar System for Kids" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-bold text-lg text-primary mb-2">Our Solar System</h3>
+                        <p class="text-text mb-4">A fun journey through our solar system!</p>
+                        <div class="flex items-center text-sm text-text">
+                            <i class="fas fa-clock mr-2"></i>
+                            <span>10 min</span>
+                            <i class="fas fa-star text-accent ml-4 mr-2"></i>
+                            <span>Ages 6-8</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-10">
+                <button class="bg-primary text-white px-6 py-3 rounded-full font-bold hover:bg-blue-600 transition">
+                    View All Videos <i class="fas fa-arrow-right ml-2"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="py-12 px-6 bg-gradient-to-r from-softGreen to-softBlue">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center text-primary mb-2">Why Kids Love Learning Here</h2>
+            <p class="text-center text-text mb-12 max-w-2xl mx-auto">We make learning engaging, safe, and fun for children of all ages</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white bg-opacity-80 rounded-xl p-6 text-center shadow-lg">
+                    <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-gamepad text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3">Fun & Interactive</h3>
+                    <p class="text-text">Games, quizzes, and interactive activities make learning exciting and memorable.</p>
+                </div>
+                
+                <div class="bg-white bg-opacity-80 rounded-xl p-6 text-center shadow-lg">
+                    <div class="w-16 h-16 bg-secondary rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-shield-alt text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3">Kid-Safe Environment</h3>
+                    <p class="text-text">Ad-free, secure platform with content curated specifically for children.</p>
+                </div>
+                
+                <div class="bg-white bg-opacity-80 rounded-xl p-6 text-center shadow-lg">
+                    <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-chart-line text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3">Progress Tracking</h3>
+                    <p class="text-text">Parents can track learning progress and celebrate achievements.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-10 px-6">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <i class="fas fa-book-open text-accent mr-3"></i> Kids' Learning Hub
+                    </h3>
+                    <p class="text-softBlue">Making learning fun and accessible for children everywhere.</p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-white hover:text-accent"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white hover:text-accent"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white hover:text-accent"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="text-white hover:text-accent"><i class="fab fa-pinterest-p"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Learning Areas</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-softBlue hover:text-white">Math</a></li>
+                        <li><a href="#" class="text-softBlue hover:text-white">Reading</a></li>
+                        <li><a href="#" class="text-softBlue hover:text-white">Science</a></li>
+                        <li><a href="#" class="text-softBlue hover:text-white">Art & Music</a></li>
+                        <li><a href="#" class="text-softBlue hover:text-white">Social Studies</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">For Parents</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-softBlue hover:text-white">Parent Dashboard</a></li>
+                        <li><a href="#" class="text-softBlue hover:text-white">Progress Reports</a></li>
+                        <li><a href="#" class="text-softBlue hover:text-white">Learning Tips</a></li>
+                        <li><a href="#" class="text-softBlue hover:text-white">Safety & Privacy</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Subscribe</h4>
+                    <p class="text-softBlue mb-4">Get updates on new courses and features</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your email" class="px-4 py-2 rounded-l-lg text-text w-full">
+                        <button class="bg-accent text-primary px-4 py-2 rounded-r-lg font-bold">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-softBlue mt-10 pt-6 text-center text-softBlue">
+                <p>&copy; 2023 Kids' Learning Hub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple interaction for the demo
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add hover effect to all buttons
+            const buttons = document.querySelectorAll('button');
+            buttons.forEach(button => {
+                button.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.05)';
+                });
+                
+                button.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                });
+            });
+            
+            // Course card animation
+            const courseCards = document.querySelectorAll('.course-card');
+            courseCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
